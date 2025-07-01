@@ -37,14 +37,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
 
   const handleAutoFollow = async () => {
     setIsAutoFollowing(true);
-    setFollowProgress({ current: 0, total: 50 });
+    setFollowProgress({ current: 0, total: 100 });
 
     try {
-      const randomUsers = await githubApi.getRandomUsers(50);
+      const randomUsers = await githubApi.getRandomUsers(100);
 
       for (let i = 0; i < randomUsers.length; i++) {
         const targetUser = randomUsers[i];
-        setFollowProgress({ current: i + 1, total: 50 });
+        setFollowProgress({ current: i + 1, total: 100 });
 
         try {
           const isAlreadyFollowing = await githubApi.isFollowing(user.login, targetUser.login);
@@ -200,7 +200,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             ) : (
               <>
                 <Zap className="w-5 h-5" />
-                <span>Auto Follow 50 Random Users</span>
+                <span>Auto Follow 100 Random Users</span>
               </>
             )}
           </button>

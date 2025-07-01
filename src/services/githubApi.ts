@@ -70,7 +70,7 @@ class GitHubAPI {
     return this.request<any>(`/search/users?q=${encodeURIComponent(searchQuery)}&page=${page}&per_page=30`);
   }
 
-  async getRandomUsers(count: number = 50) {
+  async getRandomUsers(count: number = 100) {
     const queries = [
       'followers:>100',
       'followers:>500',

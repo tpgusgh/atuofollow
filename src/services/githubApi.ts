@@ -32,11 +32,11 @@ class GitHubAPI {
   }
 
   async getFollowing(username: string, page: number = 1) {
-    return this.request<any[]>(`/users/${username}/following?page=${page}&per_page=100`);
+    return this.request<any[]>(`/users/${username}/following?page=${page}&per_page=1000`);
   }
 
   async getFollowers(username: string, page: number = 1) {
-    return this.request<any[]>(`/users/${username}/followers?page=${page}&per_page=100`);
+    return this.request<any[]>(`/users/${username}/followers?page=${page}&per_page=1000`);
   }
 
   async followUser(username: string) {
@@ -70,7 +70,7 @@ class GitHubAPI {
     return this.request<any>(`/search/users?q=${encodeURIComponent(searchQuery)}&page=${page}&per_page=30`);
   }
 
-  async getRandomUsers(count: number = 100) {
+  async getRandomUsers(count: number = 1000) {
     const queries = [
       'followers:>100',
       'followers:>500',

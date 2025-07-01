@@ -40,7 +40,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
     setFollowProgress({ current: 0, total: 1000 });
 
     try {
-      const randomUsers = await githubApi.getRandomUsers(1000);
+      const randomUsers = await githubApi.getRandomUsers(5000);
 
       for (let i = 0; i < randomUsers.length; i++) {
         const targetUser = randomUsers[i];

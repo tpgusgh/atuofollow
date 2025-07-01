@@ -24,7 +24,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
   });
 
   const addAction = (action: FollowAction) => {
-    setFollowActions(prev => [action, ...prev.slice(0, 99)]); // Keep last 100 actions
+    setFollowActions(prev => [action, ...prev.slice(0, 200)]); // Keep last 100 actions
 
     if (action.success) {
       setStats(prev => ({
@@ -37,14 +37,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
 
   const handleAutoFollow = async () => {
     setIsAutoFollowing(true);
-    setFollowProgress({ current: 0, total: 100 });
+    setFollowProgress({ current: 0, total: 1000 });
 
     try {
-      const randomUsers = await githubApi.getRandomUsers(100);
+      const randomUsers = await githubApi.getRandomUsers(1000);
 
       for (let i = 0; i < randomUsers.length; i++) {
         const targetUser = randomUsers[i];
-        setFollowProgress({ current: i + 1, total: 100 });
+        setFollowProgress({ current: i + 1, total: 1000 });
 
         try {
           const isAlreadyFollowing = await githubApi.isFollowing(user.login, targetUser.login);
@@ -195,12 +195,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
               <>
                 <RefreshCw className="w-5 h-5 animate-spin" />
                 <span>Following Users... ({followProgress.current}/{followProgress.total})</span>
-                <div className="absolute bottom-0 left-0 h-1 bg-white/30 transition-all duration-300" style={{ width: `${(followProgress.current / followProgress.total) * 100}%` }} />
+                <div className="absolute bottom-0 left-0 h-1 bg-white/30 transition-all duration-300" style={{ width: `${(followProgress.current / followProgress.total) * 1000}%` }} />
               </>
             ) : (
               <>
                 <Zap className="w-5 h-5" />
-                <span>Auto Follow 100 Random Users</span>
+                <span>Auto Follow 1000 Random Users</span>
               </>
             )}
           </button>
@@ -214,7 +214,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
               <>
                 <RefreshCw className="w-5 h-5 animate-spin" />
                 <span>Checking Users... ({unfollowProgress.current}/{unfollowProgress.total})</span>
-                <div className="absolute bottom-0 left-0 h-1 bg-white/30 transition-all duration-300" style={{ width: unfollowProgress.total > 0 ? `${(unfollowProgress.current / unfollowProgress.total) * 100}%` : '0%' }} />
+                <div className="absolute bottom-0 left-0 h-1 bg-white/30 transition-all duration-300" style={{ width: unfollowProgress.total > 0 ? `${(unfollowProgress.current / unfollowProgress.total) * 1000}%` : '0%' }} />
               </>
             ) : (
               <>

@@ -179,10 +179,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <StatsCard title="Following" value={user.following} icon={<Users className="w-6 h-6" />} color="blue" />
-          <StatsCard title="Followers" value={user.followers} icon={<Users className="w-6 h-6" />} color="green" />
-          <StatsCard title="Auto Followed" value={stats.totalFollowed} icon={<UserPlus className="w-6 h-6" />} color="purple" />
-          <StatsCard title="Auto Unfollowed" value={stats.totalUnfollowed} icon={<UserMinus className="w-6 h-6" />} color="red" />
+          <StatsCard title="팔로우" value={user.following} icon={<Users className="w-6 h-6" />} color="blue" />
+          <StatsCard title="팔로워" value={user.followers} icon={<Users className="w-6 h-6" />} color="green" />
+          <StatsCard title="추가된 팔로우" value={stats.totalFollowed} icon={<UserPlus className="w-6 h-6" />} color="purple" />
+          <StatsCard title="삭제된 팔로우" value={stats.totalUnfollowed} icon={<UserMinus className="w-6 h-6" />} color="red" />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -200,7 +200,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             ) : (
               <>
                 <Zap className="w-5 h-5" />
-                <span>Auto Follow 1000 Random Users</span>
+                <span>자동으로 1000명 랜덤 팔로우하기</span>
               </>
             )}
           </button>
@@ -219,7 +219,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             ) : (
               <>
                 <UserX className="w-5 h-5" />
-                <span>Unfollow Non-Followers</span>
+                <span>나를 팔로우하지 않는사람 전체 삭제</span>
               </>
             )}
           </button>

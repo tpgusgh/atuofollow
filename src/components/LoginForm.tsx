@@ -26,9 +26,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isLoading, error 
               <GithubIcon className="w-12 h-12 text-white" />
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-2">GitHub Auto-Follow</h2>
+          <h2 className="text-3xl font-bold text-white mb-2">깃허브 오토 팔로우</h2>
           <p className="text-gray-300 text-sm">
-            Manage your GitHub follows intelligently
+            효율적이게 github관리하기
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isLoading, error 
             <div className="space-y-4">
               <div>
                 <label htmlFor="token" className="block text-sm font-medium text-gray-300 mb-2">
-                  Personal Access Token
+                  깃허브 허용 토큰을 넣어주세요
                 </label>
                 <div className="relative">
                   <KeyIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -68,12 +68,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isLoading, error 
                 {isLoading ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Authenticating...</span>
+                    <span>연결중..</span>
                   </>
                 ) : (
                   <>
                     <GithubIcon className="w-5 h-5" />
-                    <span>Connect to GitHub</span>
+                    <span>깃허브에 연결됨</span>
                   </>
                 )}
               </button>
@@ -89,12 +89,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isLoading, error 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                Create one here
+                눌러서 만들기
               </a>
-            </p>
-            <p className="text-xs text-gray-500">
-              Required scopes: <code className="bg-white/10 px-1 rounded">user:follow</code>
-            </p>
           </div>
         </form>
       </div>

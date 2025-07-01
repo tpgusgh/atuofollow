@@ -39,11 +39,11 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
         <div className="flex space-x-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-white">{user.following}</div>
-            <div className="text-sm text-gray-400">Following</div>
+            <div className="text-sm text-gray-400">팔로우</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-white">{user.followers}</div>
-            <div className="text-sm text-gray-400">Followers</div>
+            <div className="text-sm text-gray-400">팔로워</div>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
           className="flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/20"
         >
           <ExternalLink className="w-4 h-4" />
-          <span>View on GitHub</span>
+          <span>깃허브 보기</span>
         </a>
       </div>
     </div>

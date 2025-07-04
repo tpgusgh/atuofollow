@@ -93,7 +93,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isLoading, error 
               </a>
             </p>
             <p className="text-xs text-gray-500">
-              Required scopes: <code className="bg-white/10 px-1 rounded">user:follow</code>
+              허용해야하는 권한: <code className="bg-white/10 px-1 rounded">user:follow</code>
             </p>
           </div>
         </form>

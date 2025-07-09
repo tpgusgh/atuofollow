@@ -155,6 +155,37 @@ class GitHubAPI {
 
     return allUsers.slice(0, count);
   }
+
+  // ✅ 여기 추가된 메서드
+  async getRandomKoreanUsers(count: number = 100) {
+    const allUsers = [];
+    const usedUserIds = new Set();
+    let attempts = 0;
+
+    while (allUsers.length < count && attempts < 20) {
+      try {
+        const randomPage = Math.floor(Math.random() * 10) + 1;
+        const result = await this.searchUsers('location:korea', randomPage);
+
+        for (const user of result.items) {
+          if (!usedUserIds.has(user.id)) {
+            usedUserIds.add(user.id);
+            allUsers.push(user);
+          }
+
+          if (allUsers.length >= count) break;
+        }
+
+        attempts++;
+        await new Promise(resolve => setTimeout(resolve, 300));
+      } catch (error) {
+        console.warn('Error fetching Korean users:', error);
+        attempts++;
+      }
+    }
+
+    return allUsers.slice(0, count);
+  }
 }
 
 export const githubApi = new GitHubAPI();

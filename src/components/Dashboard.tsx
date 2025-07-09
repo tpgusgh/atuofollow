@@ -231,7 +231,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          {/* 랜덤 팔로우 버튼 */}
           <button
             onClick={handleAutoFollow}
             disabled={isRandomFollowing}
@@ -251,7 +250,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             )}
           </button>
 
-          {/* 언팔로우 버튼 */}
           <button
             onClick={handleUnfollowNonFollowers}
             disabled={isUnfollowing}
@@ -271,7 +269,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             )}
           </button>
 
-          {/* 한국인 팔로우 버튼 */}
           <button
             onClick={handleKoreanFollow}
             disabled={isKoreanFollowing}
